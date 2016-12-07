@@ -1,0 +1,16 @@
+{
+  "name": "nodejs_eksamen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js\u001b[D\u001b[D\u001b[D\u001b[1;2D\u001b[1;2D\u001b[1;2D\u001b[C\u001b[Cserver.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nikolaj",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongodb": "^2.2.11"
+  }
+}

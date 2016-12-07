@@ -1,0 +1,47 @@
+var express = require('express');
+var app = express();
+var MongoClient = require('mongodb').MongoClient;
+var ObjectId = require('mongodb').ObjectID;
+var url = 'mongodb://localhost:27017/metal';
+
+app.get('/concert',function (req,res) {
+
+    MongoClient.connect(url,function (err,db) {
+        var review = db.collection('concert_review');
+        review.find().toArray(function (err,data) {
+            //res.send(JSON.stringify(data));
+            res.json(data);
+        })
+    })
+
+})
+
+
+app.get('/concert/:id',function (req,res) {
+
+    MongoClient.connect(url,function (err,db) {
+        var band = db.collection('concert_review');
+
+        review.findOne({'_id' : ObjectId(req.params.id)},(function (err,data) {
+            //res.send(JSON.stringify(data));
+            res.json(data);
+        }))
+    })
+
+});
+
+
+app.post('/concert',function (req,res) {
+
+    MongoClient.connect(url,function (err,db) {
+        var review = db.collection('concert_review');
+        review.insertOne(req.body, function (err,data) {
+            //res.send(JSON.stringify(data));
+            res.send({'msg':'Review created'})
+        })
+    })
+
+})
+
+
+module.exports = app;
